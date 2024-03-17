@@ -7,8 +7,10 @@ UConquer is designed to ignite your competitive spirit and hone your programming
 ## Key Features:
 
 Contest Frenzy: Participate in thrilling coding contests, test your mettle against other developers, and climb the leaderboards.
+
 Problem Playground: Sharpen your skills with a diverse range of coding problems, categorized by difficulty to suit your learning journey.
-1v1 Battleground: Challenge your peers to intense head-to-head coding duels, pushing each other to the limit. (Note: Implementation details for 1v1 battles can be further elaborated in the README file.)
+
+1v1 Battleground: Challenge your peers to intense head-to-head coding duels, pushing each other to the limit.
 
 ## Built with:
 
