@@ -9,7 +9,7 @@ import IssuesAction from './IssuesAction';
 
 const IssuesPage = async () => {
   const issues = await prisma.issue.findMany();
-  await delay(1000);
+  await delay(500);
   return (
     <div className='space-y-3'>
       <IssuesAction></IssuesAction>

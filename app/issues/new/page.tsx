@@ -12,11 +12,12 @@ import { z } from "zod";
 import { Text } from '@radix-ui/themes';
 import ErrorMessage from '@/app/components/ErrorMessage';
 import Spinner from '@/app/components/Spinner';
+import delay from 'delay';
 
 
 type IssueForm = z.infer< typeof createIssueSchema>;
 
-const newIssuePage = () => {
+const newIssuePage = async () => {
     const router = useRouter();
     const { register, control, handleSubmit,formState: {errors} } = useForm<IssueForm>({
         resolver: zodResolver(createIssueSchema)
@@ -34,6 +35,7 @@ const newIssuePage = () => {
         }
     
     })
+    await delay(500);
     return (
         <div className='max-w-xl'>
             <form
