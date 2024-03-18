@@ -1,12 +1,12 @@
-import Image from "next/image";
-import ProductCard from "./components/ProductCard";
+import NavBar from "./NavBar";
 
 export default function Home() {
   return (
     <main>
-      <h1>Welcome to main page</h1>
-      <a href="/users">Go to users page</a>
-      <ProductCard></ProductCard>
+      <nav>
+        <NavBar></NavBar>
+      </nav>
+     
     </main>
   );
 }
