@@ -11,6 +11,8 @@ import { createIssueSchema } from '@/app/validationSchmemas';
 import { z } from "zod";
 import { Text } from '@radix-ui/themes';
 import ErrorMessage from '@/app/components/ErrorMessage';
+import Spinner from '@/app/components/Spinner';
+
 
 type IssueForm = z.infer< typeof createIssueSchema>;
 
@@ -20,33 +22,32 @@ const newIssuePage = () => {
         resolver: zodResolver(createIssueSchema)
     });
     const [error, setError] = useState('');
-
-
+    const [isSubmitting, setSubmitting]= useState(false);
+    const onSubmit = handleSubmit (async (data) => {
+        try {
+            setSubmitting(true);
+            await axios.post('/api/issues', data);
+            router.push('/issues');
+        } catch (error) {
+            setSubmitting(false);
+            setError("there is some problem in code")
+        }
+    
+    })
     return (
         <div className='max-w-xl'>
-            {error && (
-            <Callout.Root color='red'>
-                <Callout.Text> {error} </Callout.Text>
-            </Callout.Root>
-            )}
             <form
                 className=' space-y-4'
-                onSubmit={handleSubmit (async (data) => {
-                    try {
-                        await axios.post('/api/issues', data);
-                        router.push('/issues');
-                    } catch (error) {
-                        setError("there is some problem in code")
-                    }
-
-                })}>
+                onSubmit={onSubmit}>
 
                 <h1>New Issue page</h1>
 
                 <TextField.Root>
                     <TextField.Input placeholder='title' {...register('title')} />
                 </TextField.Root>
-                <ErrorMessage>{ errors.title?.message }</ErrorMessage>
+                <ErrorMessage>
+                    { errors.title?.message }
+                </ErrorMessage>
                 <Controller
                     name="description"
                     control={control}
@@ -57,7 +58,7 @@ const newIssuePage = () => {
                 </ErrorMessage>
 
 
-                <Button>Submit new issue</Button>
+                <Button disabled={isSubmitting}>Submit new issue {isSubmitting && <Spinner></Spinner> } </Button>
             </form>
         </div>
     )
