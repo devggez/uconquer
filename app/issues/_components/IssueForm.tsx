@@ -7,7 +7,7 @@ import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createIssueSchema } from '@/app/validationSchmemas';
+import { issueSchema } from '@/app/validationSchmemas';
 import { z } from "zod";
 import { ErrorMessage, Spinner } from "@/app/components";
 import { Issue } from '@prisma/client';
@@ -18,12 +18,12 @@ const SimpleMDE = dynamic(() =>
 );
 
 
-type IssueFormData = z.infer<typeof createIssueSchema>;
+type IssueFormData = z.infer<typeof issueSchema>;
 
 const IssueForm = async ({ issue }: {issue?: Issue}) => {
     const router = useRouter();
     const { register, control, handleSubmit, formState: { errors } } = useForm<IssueFormData>({
-        resolver: zodResolver(createIssueSchema)
+        resolver: zodResolver(issueSchema)
     });
     const [error, setError] = useState('');
     const [isSubmitting, setSubmitting] = useState(false);
