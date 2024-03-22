@@ -17,7 +17,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
         try {
             setIsDeleting(true);
             await axios.delete('/api/issues/' + issueId);
-            router.push('/issues');
+            router.push('/issues/list');
             router.refresh();
     
         } catch (error) {
@@ -32,7 +32,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
                 <AlertDialog.Trigger>
                     <Button color='red' disabled={isDeleting}>
                         Delete Issue
-                        {isDeleting && <Spinner />};
+                        {isDeleting && <Spinner />}
                     </Button>
                 </AlertDialog.Trigger>
                 <AlertDialog.Content>
