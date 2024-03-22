@@ -3,7 +3,7 @@ import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export async function PATCH(request: NextRequest,  {params} : { params :  {id: string} }) {
+export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
     const body = await request.json();
     const validation = issueSchema.safeParse(body);
 
@@ -20,13 +20,32 @@ export async function PATCH(request: NextRequest,  {params} : { params :  {id: s
     }
 
     const updatedIssue = await prisma.issue.update({
-        where : {id: issue.id},
-        data : {
+        where: { id: issue.id },
+        data: {
             title: body.title,
             description: body.description
         }
     })
 
     return NextResponse.json(updatedIssue);
+
+}
+
+
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+    
+    const issue = await prisma.issue.findUnique({
+        where: { id: parseInt(params.id) }
+    })
+
+    if (!issue) {
+        return NextResponse.json({error: 'Invalid issue'}, {status : 404})
+    }
+
+    await prisma.issue.delete({
+        where: {id: issue.id}
+    })
+
+    return NextResponse.json({});
 
 }
