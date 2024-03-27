@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 export default function Home() {
   return (
     <main>
-      this is shit
+      Irure tempor labore Lorem.
      
     </main>
   );
