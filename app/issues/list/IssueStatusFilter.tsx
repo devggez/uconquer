@@ -12,7 +12,7 @@ const statuses: { label: string; value?: Status }[] = [
 
 const IssueStatusFilter = () => {
   return (
-    <Select.Root>
+    <Select.Root >
       <Select.Trigger placeholder="Filter by status..."></Select.Trigger>
       <Select.Content>
         <Select.Group>
