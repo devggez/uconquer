@@ -9,7 +9,8 @@ const IssuesPage = async () => {
   const issues = await prisma.issue.findMany();
   await delay(500);
   return (
-    <div className='space-y-3'>
+    <div className=''>
+      <h1 className="text-2xl text-orange-400 mb-6">Problems</h1>
       <IssuesAction></IssuesAction>
 
       <Table.Root variant='surface'>

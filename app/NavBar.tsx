@@ -45,7 +45,7 @@ const NavLinks = () => {
     { label: "Dashboard", href: "/" },
     { label: "Contest", href: "/contest" },
     { label: "Problems", href: "/issues/list" },
-    { label: "Discussion", href: "/discussion" },
+    // { label: "Discussion", href: "/discussion" },
   ];
 
   return (
