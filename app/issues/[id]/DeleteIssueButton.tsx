@@ -1,5 +1,6 @@
 'use client';
 import { Spinner } from '@/app/components';
+import { CrossCircledIcon } from '@radix-ui/react-icons';
 import { AlertDialog, Button, Flex } from '@radix-ui/themes';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -30,8 +31,8 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
         <>
             <AlertDialog.Root>
                 <AlertDialog.Trigger>
-                    <Button color='red' disabled={isDeleting}>
-                        Delete Issue
+                    <Button color='red' variant="surface" disabled={isDeleting}>
+                        <CrossCircledIcon /> Delete
                         {isDeleting && <Spinner />}
                     </Button>
                 </AlertDialog.Trigger>
@@ -43,7 +44,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
                             <Button variant='soft' color='gray'> Cancel </Button>
                         </AlertDialog.Cancel>
                         <AlertDialog.Action>
-                            <Button color='red' onClick={deleteIssue} >Delete Issue</Button>
+                            <Button color='red' onClick={deleteIssue} >Delete Problem</Button>
                         </AlertDialog.Action>
                     </Flex>
                 </AlertDialog.Content>

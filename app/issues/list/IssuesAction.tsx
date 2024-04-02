@@ -9,10 +9,10 @@ const IssuesAction = () => {
     <Flex mb="5" justify="between">
       <Box>
         <Button variant="surface" color="orange">
-          <Link href="/issues/new">Create New issue </Link>
+          <Link href="/issues/new">Create New Problem </Link>
         </Button>
         <Button ml="4" mr="4" variant="soft" ml="4" color="orange">
-          <Link href="/issues/new">Show My issues </Link>
+          <Link href="/issues/new">Show My Problems </Link>
         </Button>
 
         <IssueStatusFilter />

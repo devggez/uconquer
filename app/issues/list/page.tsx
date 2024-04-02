@@ -16,7 +16,7 @@ const IssuesPage = async () => {
       <Table.Root variant='surface'>
         <Table.Header>
           <Table.Row>
-            <Table.ColumnHeaderCell>issue</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Problem Statement</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className='hidden md:table-cell'>status</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className='hidden md:table-cell'>created</Table.ColumnHeaderCell>
           </Table.Row>

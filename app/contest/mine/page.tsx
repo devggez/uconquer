@@ -1,5 +1,5 @@
 'use client';
-import { DotsHorizontalIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { CrossCircledIcon, DotsHorizontalIcon, MagnifyingGlassIcon, Pencil2Icon } from "@radix-ui/react-icons";
 import { Box, Button, Flex, IconButton, Table, TextField } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
@@ -8,14 +8,11 @@ const ShowMineContest = () => {
   return (
     <>
        <Box>
-        <h1 className="text-2xl text-orange-400 mt-12 mb-6">Contests</h1>
+        <h1 className="text-2xl text-orange-400 mb-6">My Contests</h1>
         <Flex justify="between" mt="2" mb="4">
           <Box>
             <Button variant="surface" color="orange">
               <Link href="/contest/new">Create New Contest </Link>
-            </Button>
-            <Button variant="soft" ml="4" color="orange">
-              <Link href="/contest/mine">Show My Contests </Link>
             </Button>
           </Box>
           <Box width="250px">
@@ -39,6 +36,7 @@ const ShowMineContest = () => {
                 <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Time</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Action</Table.ColumnHeaderCell>
               </Table.Row>
             </Table.Header>
 
@@ -49,6 +47,11 @@ const ShowMineContest = () => {
                 <Table.Cell>Starters 120</Table.Cell>
                 <Table.Cell>07 Jan 2024 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
+                
               </Table.Row>
 
               <Table.Row>
@@ -56,6 +59,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Best coder</Table.Cell>
                 <Table.Cell>01 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Pending</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -63,6 +70,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -70,6 +81,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -77,6 +92,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -84,6 +103,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -91,6 +114,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
 
               <Table.Row>
@@ -98,6 +125,10 @@ const ShowMineContest = () => {
                 <Table.Cell>Jasper learn ai </Table.Cell>
                 <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
                 <Table.Cell>Running</Table.Cell>
+                <div>
+                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
+                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
+                </div>
               </Table.Row>
             </Table.Body>
           </Table.Root>
