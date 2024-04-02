@@ -45,7 +45,7 @@ const NavLinks = () => {
     { label: "Dashboard", href: "/" },
     { label: "Contest", href: "/contest" },
     { label: "Problems", href: "/issues/list" },
-    // { label: "Discussion", href: "/discussion" },
+    { label: "Documentation", href: "/documentation" },
   ];
 
   return (
@@ -70,7 +70,8 @@ const NavLinks = () => {
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
-  if (status === "loading") return <Skeleton width="3rem" height="3rem" borderRadius="full"/>;
+  if (status === "loading")
+    return <Skeleton width="3rem" height="3rem" borderRadius="full" />;
 
   if (status === "unauthenticated")
     return (
