@@ -2,7 +2,7 @@
 
 ** Unleash your coding prowess in challenges, contests, and 1v1 battles! **
 
-UConquer is designed to ignite your competitive spirit and hone your programming skills in a dynamic web environment.
+UConquer is designed to ignite your competitive spirit and hone your programming skills.
 
 ## Key Features:
 
@@ -17,7 +17,6 @@ Problem Playground: Sharpen your skills with a diverse range of coding problems,
 Next.js: A powerful React framework for server-side rendering, static site generation, and improved SEO.
 TypeScript: Enhances code readability and maintainability with static typing.
 React: A popular JavaScript library for building dynamic and interactive user interfaces.
-Node.js: The JavaScript runtime environment that empowers UConquer's server-side execution.
 
 ## Contributing:
 
