@@ -11,13 +11,13 @@ const IssuesAction = () => {
         <Button variant="surface" color="orange">
           <Link href="/issues/new">Create New Problem </Link>
         </Button>
-        <Button ml="4" mr="4" variant="soft" ml="4" color="orange">
+        <Button ml="4" mr="4" variant="soft" color="orange">
           <Link href="/issues/new">Show My Problems </Link>
         </Button>
 
         <IssueStatusFilter />
       </Box>
-      <Box width="250px">
+      <Box width="9">
             <TextField.Root size="2">
               <TextField.Slot>
                 <MagnifyingGlassIcon height="16" width="16" />
