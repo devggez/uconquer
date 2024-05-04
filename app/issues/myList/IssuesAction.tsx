@@ -12,7 +12,7 @@ const IssuesAction = () => {
           <Link href="/issues/new">Create New Problem </Link>
         </Button>
         <Button ml="4" mr="4" variant="soft" color="orange">
-          <Link href="/issues/myList">Show My Problems </Link>
+          <Link href="/issues/new">Show My Problems </Link>
         </Button>
 
         <IssueStatusFilter />

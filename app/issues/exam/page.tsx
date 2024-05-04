@@ -71,7 +71,16 @@ const ExamPageShow = () => {
 
             <Tabs.Content value="Solution">
               <Box>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/bS9em7Bg0iU?si=psfx0DqQsYjrNq8P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/bS9em7Bg0iU?si=psfx0DqQsYjrNq8P"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
               </Box>
               watch the video to solve this problem
             </Tabs.Content>

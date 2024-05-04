@@ -17,6 +17,9 @@ model Issue {
   id               Int      @id @default(autoincrement())
   title            String   @db.VarChar(225)
   description      String   @db.Text
+  inputVal         String  @db.Text
+  outputVal        String  @db.Text
+  owner            String  @db.VarChar(225)
   status           Status   @default(OPEN)
   createdAt        DateTime @default(now())
   updateAt         DateTime @updatedAt
@@ -26,7 +29,6 @@ model Issue {
 
 enum Status {
   OPEN
-  IN_PROGRESS
   CLOSED
 }
 
