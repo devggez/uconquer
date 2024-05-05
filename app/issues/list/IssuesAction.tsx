@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Box, Button, Flex, IconButton, TextField } from "@radix-ui/themes";
 import Link from "next/link";
 import IssueStatusFilter from "./IssueStatusFilter";
@@ -17,18 +17,17 @@ const IssuesAction = () => {
 
         <IssueStatusFilter />
       </Box>
-      <Box width="9">
-            <TextField.Root size="2">
-              <TextField.Slot>
-                <MagnifyingGlassIcon height="16" width="16" />
-              </TextField.Slot>
-              <TextField.Slot>
-                <IconButton size="1" variant="ghost">
-                  <DotsHorizontalIcon height="14" width="14" />
-                </IconButton>
-              </TextField.Slot>
-            </TextField.Root>
-          </Box>
+
+      <Box className="w-64">
+        <TextField.Root >
+          <TextField.Input placeholder="Search problems" />
+          <TextField.Slot>
+            <IconButton size="1" variant="ghost">
+              <MagnifyingGlassIcon height="16" width="16" />
+            </IconButton>
+          </TextField.Slot>
+        </TextField.Root>
+      </Box>
     </Flex>
   );
 };

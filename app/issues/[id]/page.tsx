@@ -8,6 +8,8 @@ import { getServerSession } from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 import AssigneeSelect from "./AssigneeSelect";
 import Link from "next/link";
+import { useEffect } from "react";
+import Compiler from "./Compiler";
 
 interface Props {
   params: { id: string };
@@ -28,20 +30,11 @@ const IssueDetailPage = async ({ params }: Props) => {
         <IssueDetails issue={issue}></IssueDetails>
       </Box>
       {session && (
-        <Box className="md:col-span-2">
-          <Box mb="4">
-            <div data-pym-src="https://www.jdoodle.com/embed/v1/722625a88fc8fae1"></div>
-            <script
-              src="https://www.jdoodle.com/assets/jdoodle-pym.min.js"
-              type="text/javascript"
-            >
-              {" "}
-            </script>
-          </Box>
-        </Box>
+        <Compiler></Compiler>
       )}
     </Grid>
   );
+  
 };
 
 export default IssueDetailPage;
