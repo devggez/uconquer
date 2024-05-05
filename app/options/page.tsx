@@ -9,26 +9,32 @@ import {
   Button,
   TextField,
 } from "@radix-ui/themes";
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import React from "react";
+import authOptions from "../auth/authOptions";
 
-const Settings = () => {
+const Settings = async () => {
+
+  const session = await getServerSession(authOptions);
+
   return (
     <>
-      <Grid columns="3">
-        <Box className="col-span-2 mr-16">
+      <Grid columns="5">
+        <Box className="col-span-1"></Box>
+        <Box className="col-span-3">
           <Box maxWidth="240px">
             <Card>
               <Flex gap="6" align="center">
                 <Avatar
                   ml="8"
                   size="8"
-                  src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?&w=64&h=64&dpr=2&q=70&crop=focalpoint&fp-x=0.67&fp-y=0.5&fp-z=1.4&fit=crop"
-                  radius="full"
+                  src={session?.user.image!}
                   fallback="T"
                 />
                 <Box className="space-y-3 py-4">
                   <Text as="div" size="2" weight="bold">
-                    Name: Salman Saad
+                    Name: {session.user.name}
                   </Text>
                   <Text as="div" size="2" color="gray">
                     UIUId: 011211115
@@ -46,23 +52,6 @@ const Settings = () => {
               </Flex>
             </Card>
           </Box>
-        </Box>
-
-        <Box>
-          <Card>
-            <h1 className="text-2xl text-center text-orange-400 ">
-              Change password
-            </h1>
-            <Box maxWidth="250px">
-              <TextField.Root size="2" placeholder="Old Password" />
-            </Box>
-            <Box maxWidth="250px">
-              <TextField.Root size="2" placeholder="New Password" />
-            </Box>
-            <Box maxWidth="250px">
-              <TextField.Root size="2" placeholder="Confirm Password" />
-            </Box>
-          </Card>
         </Box>
       </Grid>
     </>
