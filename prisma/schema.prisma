@@ -32,6 +32,26 @@ enum Status {
   CLOSED
 }
 
+model Contest {
+  id          Int           @id @default(autoincrement())
+  title       String        @db.VarChar(225)
+  description String        @db.Text
+  problems    String        @db.Text
+  requerments String        @db.Text
+  end         String        @db.Text
+  start       String        @db.Text
+  owner       String        @db.VarChar(225)
+  status      ContestStatus @default(RUNNING)
+  createdAt   DateTime      @default(now())
+  updateAt    DateTime      @updatedAt
+}
+
+enum ContestStatus {
+  CLOSED
+  RUNNING
+  UP_COMEING
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
