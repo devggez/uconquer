@@ -21,12 +21,12 @@ import Link from "next/link";
 export default async function Home() {
   const session = await getServerSession(authOptions);
   const totalIssues = await prisma.issue.count({
-    where: { owner: session?.user?.email },
+    where: { owner: session?.user?.email! },
   });
 
   const issues = await prisma.issue.findMany({
     where: {
-      owner: session.user?.email,
+      owner: session.user?.email
     },
   });
 
