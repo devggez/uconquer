@@ -17,9 +17,9 @@ model Issue {
   id               Int      @id @default(autoincrement())
   title            String   @db.VarChar(225)
   description      String   @db.Text
-  inputVal         String  @db.Text
-  outputVal        String  @db.Text
-  owner            String  @db.VarChar(225)
+  inputVal         String   @db.Text
+  outputVal        String   @db.Text
+  owner            String   @db.VarChar(225)
   status           Status   @default(OPEN)
   createdAt        DateTime @default(now())
   updateAt         DateTime @updatedAt
@@ -30,6 +30,27 @@ model Issue {
 enum Status {
   OPEN
   CLOSED
+}
+
+model Contest {
+  id          Int           @id @default(autoincrement())
+  title       String        @db.VarChar(225)
+  description String        @db.Text
+  problems    String?       @db.Text
+  requerments String?       @db.Text
+  end         DateTime      @default(now())
+  start       DateTime      @default(now())
+  image       String?       @db.Text
+  owner       String        @db.VarChar(225)
+  status      ContestStatus @default(RUNNING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+enum ContestStatus {
+  CLOSED
+  RUNNING
+  COMING
 }
 
 model Account {
@@ -62,6 +83,8 @@ model Session {
 model User {
   id             String    @id @default(cuid())
   name           String?
+  uiuid          String?
+  password       String?
   email          String?   @unique
   emailVerified  DateTime?
   image          String?
