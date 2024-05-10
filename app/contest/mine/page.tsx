@@ -1,135 +1,57 @@
-'use client';
-import { CrossCircledIcon, DotsHorizontalIcon, MagnifyingGlassIcon, Pencil2Icon } from "@radix-ui/react-icons";
-import { Box, Button, Flex, IconButton, Table, TextField } from "@radix-ui/themes";
+import {
+  CrossCircledIcon,
+  DotsHorizontalIcon,
+  MagnifyingGlassIcon,
+  Pencil2Icon,
+} from "@radix-ui/react-icons";
+import {
+  Box,
+  Button,
+  Flex,
+  IconButton,
+  Table,
+  TextField,
+} from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
+import ContestSearch from "../ContestSearch";
+import ContestListItem from "./ContestListItem";
+import prisma from "@/prisma/client";
 
-const ShowMineContest = () => {
+const ShowMineContest = async () => {
+
+  const contests = await prisma.contest.findMany();
+
   return (
     <>
-       <Box>
-        <h1 className="text-2xl text-orange-400 mb-6">My Contests</h1>
+      <Box>
+        <h1 className="text-2xl text-orange-400 mt-12 mb-6">Contests</h1>
         <Flex justify="between" mt="2" mb="4">
-          <Box>
+          <Flex>
             <Button variant="surface" color="orange">
               <Link href="/contest/new">Create New Contest </Link>
             </Button>
-          </Box>
-          <Box width="250px">
-            <TextField.Root size="2">
-              <TextField.Slot>
-                <MagnifyingGlassIcon height="16" width="16" />
-              </TextField.Slot>
-              <TextField.Slot>
-                <IconButton size="1" variant="ghost">
-                  <DotsHorizontalIcon height="14" width="14" />
-                </IconButton>
-              </TextField.Slot>
-            </TextField.Root>
-          </Box>
+          </Flex>
+          <ContestSearch></ContestSearch>
         </Flex>
+
         <Box>
           <Table.Root variant="surface">
             <Table.Header>
               <Table.Row>
-                <Table.ColumnHeaderCell>Code</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell>Time</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Start</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>End</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Statu</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Action</Table.ColumnHeaderCell>
+                
               </Table.Row>
             </Table.Header>
 
-
             <Table.Body>
-              <Table.Row>
-                <Table.RowHeaderCell>START120D</Table.RowHeaderCell>
-                <Table.Cell>Starters 120</Table.Cell>
-                <Table.Cell>07 Jan 2024 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-                
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>BC2</Table.RowHeaderCell>
-                <Table.Cell>Best coder</Table.Cell>
-                <Table.Cell>01 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Pending</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
-
-              <Table.Row>
-                <Table.RowHeaderCell>Jasp478</Table.RowHeaderCell>
-                <Table.Cell>Jasper learn ai </Table.Cell>
-                <Table.Cell>05 Jan 2023 Wed 20:30</Table.Cell>
-                <Table.Cell>Running</Table.Cell>
-                <div>
-                <Table.Cell><Button variant='soft' color='gray'> <Pencil2Icon /> </Button></Table.Cell>
-                <Table.Cell><Button variant='soft' color='red'> <CrossCircledIcon></CrossCircledIcon> </Button></Table.Cell>
-                </div>
-              </Table.Row>
+              {contests.map((contest) => (
+                <ContestListItem contest={contest}></ContestListItem>
+              ))}
             </Table.Body>
           </Table.Root>
         </Box>

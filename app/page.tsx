@@ -26,7 +26,7 @@ export default async function Home() {
 
   const issues = await prisma.issue.findMany({
     where: {
-      owner: session.user?.email
+      owner: session?.user?.email
     },
   });
 
