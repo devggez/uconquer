@@ -14,9 +14,19 @@ const ContestListItem = ({ contest }: { contest: Contest }) => {
           <Table.RowHeaderCell>{contest.title}</Table.RowHeaderCell>
           <Table.Cell>{contest.start.toDateString()}</Table.Cell>
           <Table.Cell>{contest.end.toDateString()}</Table.Cell>
+          <Table.Cell>{contest.status}</Table.Cell>
           <Table.Cell>
-      </Table.Cell>
-
+            <Flex>
+              <Button variant="soft" color="gray">
+                {" "}
+                <Pencil2Icon></Pencil2Icon>
+              </Button>
+              <Button variant="soft" color="red" ml='4'>
+                {" "}
+                <CrossCircledIcon></CrossCircledIcon>
+              </Button>
+            </Flex>
+          </Table.Cell>
         </Table.Row>
       </AlertDialog.Trigger>
       <AlertDialog.Content>
@@ -31,7 +41,7 @@ const ContestListItem = ({ contest }: { contest: Contest }) => {
               height: 140,
               backgroundColor: "var(--gray-5)",
             }}
-            />
+          />
         </Inset>
         <AlertDialog.Title>{contest.title}</AlertDialog.Title>
         <AlertDialog.Description>

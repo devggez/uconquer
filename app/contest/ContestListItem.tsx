@@ -1,11 +1,30 @@
 "use client";
 
 import { Contest } from "@prisma/client";
-import { AlertDialog, Button, Flex, Inset, Table } from "@radix-ui/themes";
+import {
+  AlertDialog,
+  Button,
+  Flex,
+  Heading,
+  Inset,
+  Table,
+  TableBody,
+} from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 
 const ContestListItem = ({ contest }: { contest: Contest }) => {
+  const leaderBoardData: {
+    name: string;
+    position: number;
+    score: number;
+    solved: number;
+  }[] = [
+    { name: "Wasi", position: 1, score: 243, solved: 3 },
+    { name: "Salman Saad", position: 2, score: 213, solved: 2 },
+    { name: "Sayeem Been Zaman", position: 3, score: 198, solved: 1 },
+  ];
+
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
@@ -45,6 +64,27 @@ const ContestListItem = ({ contest }: { contest: Contest }) => {
           contest Requirement: {contest.requerments}
           <br />
           <br />
+          <Heading>Leader Board</Heading>
+          <Table.Root>
+            <Table.Header>
+              <Table.Row>
+                <Table.ColumnHeaderCell>Position</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Solved Problem</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell>Score</Table.ColumnHeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <TableBody>
+              {leaderBoardData.map((leader) => (
+                <Table.Row>
+                  <Table.Cell>{leader.position}</Table.Cell>
+                  <Table.RowHeaderCell>{leader.name}</Table.RowHeaderCell>
+                  <Table.Cell>{leader.solved}</Table.Cell>
+                  <Table.Cell>{leader.score}</Table.Cell>
+                </Table.Row>
+              ))}
+            </TableBody>
+          </Table.Root>
         </AlertDialog.Description>
         <Flex mt="4" gap="3">
           <AlertDialog.Cancel>
